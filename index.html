@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Милые котики</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
     <script
       src="https://kit.fontawesome.com/3e2b3d0dcf.js"
       crossorigin="anonymous"
     ></script>
-    <script src="scripts/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
   </head>
   <body>
     <header>
       <a href="" class="logo"
         ><i class="fa-solid fa-paw fa-2x"></i> Милые котики</a
       >
-      <a class="btn" href="" id="add"><i class="fa-regular fa-plus"></i></a>
+      <div class="group">
+        <div id="greeting">
+          <span></span> <button id="btnOut">Выход</button>
+        </div>
+        <a class="btn" href="" id="add"><i class="fa-regular fa-plus"></i></a>
+      </div>
     </header>
     <main></main>
     <footer>
@@ -52,6 +57,81 @@
         </form>
       </div>
     </div>
-    <script src="scripts/index.js"></script>
+    <div class="popup-wrapper-authorization" id="popupWrapperAuthorization">
+      <div class="popup-authorization">
+        <h2>Авторизация пользователя</h2>
+        <form id="formAuthorization">
+          <div class="form-group">
+            <label for="login">Имя пользователя:</label>
+            <input
+              id="login"
+              type="text"
+              name="login"
+              placeholder="Введите имя пользователя"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Введите пароль"
+            />
+          </div>
+          <button id="btnIn">Войти</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup-wrapper-update-info-cat" id="popupUpdateInfoCat">
+      <div class="popup-update-info-cat">
+        <div class="popup-close btn" id="btnCloseUpdateInfoCat">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h2>Информация о коте</h2>
+        <form id="formUpdateInfoCat">
+          <div class="form-img" id="imageCat"></div>
+          <div>
+            <div>Возраст кота:</div>
+            <input type="number" name="age" placeholder="Возраст" />
+          </div>
+          <div>
+            <div>Имя кота:</div>
+            <input type="text" name="name" required placeholder="Имя" />
+          </div>
+          <div>
+            <div>Описание:</div>
+            <textarea name="description" placeholder="Описание"></textarea>
+          </div>
+          <div>
+            <div>Рэйтинг:</div>
+            <input
+              type="number"
+              name="rate"
+              placeholder="Рейтинг (0-10)"
+              min="0"
+              max="10"
+            />
+          </div>
+          <label
+            >Любимчик <input type="checkbox" name="favourite" placeholder=""
+          /></label>
+          <div>
+            <div>Введите новую ссылку:</div>
+            <input type="text" name="img_link" placeholder="Ссылка на фото" />
+          </div>
+          <div class="form-group">
+            <button id="btnUpdateCat">Обновить информацию</button>
+            <button id="btnDeleteCat">Удалить котика</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/state.js"></script>
+    <script src="scripts/popup-authorization.js"></script>
+    <script src="scripts/popup-add-cat.js"></script>
+    <script src="scripts/popup-update-info-cat.js"></script>
+    <script src="scripts/render-cats.js"></script>
   </body>
 </html>
